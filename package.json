@@ -1,6 +1,6 @@
 {
   "name": "blackbotlistapi",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "https://blackbotlist.cf Apisidir!",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "keywords": [
     "https://blackbotlist.cf/",
-    "blackbotlist.tk",
+    "blackbotlist.cf",
     "blackbotlist",
     "blackbotlistapi",
     "black-bot-list",

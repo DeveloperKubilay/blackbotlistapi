@@ -1,9 +1,9 @@
 # Black botlist api
-Versiyon: **3.1.4**
+Versiyon: **3.1.5**
 Modülün sahibi: **kubi#5443**
 ## Bilgiler <br>
-[Black botlist web siteye yönlendir](https://blackbotlist.tk/) <br>
-[Nasıl kullanılır](https://blackbotlist.tk/docs) <br>
+[Black botlist web siteye yönlendir](https://blackbotlist.cf/) <br>
+[Nasıl kullanılır](https://blackbotlist.cf/docs) <br>
 [Discord sunucusu](https://discord.gg/cPe9A9vmaE) <br>
 [Discord yardım sunucusu](https://discord.gg/4Xpwwz6pgN) <br>
 ### Kullanımı<br> <br>
