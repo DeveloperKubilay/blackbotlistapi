@@ -1,5 +1,5 @@
 # Black botlist api
-Versiyon: **3.1.3**
+Versiyon: **3.1.4**
 Modülün sahibi: **kubi#5443**
 ## Bilgiler <br>
 [Black botlist web siteye yönlendir](https://blackbotlist.tk/) <br>
