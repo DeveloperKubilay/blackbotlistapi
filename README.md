@@ -1,64 +1,71 @@
-# Black botlist api
-Versiyon: **3.1.5**
-Modülün sahibi: **kubi#5443**
-## Bilgiler <br>
-[Black botlist web siteye yönlendir](https://blackbotlist.cf/) <br>
-[Nasıl kullanılır](https://blackbotlist.cf/docs) <br>
-[Discord sunucusu](https://discord.gg/cPe9A9vmaE) <br>
-[Discord yardım sunucusu](https://discord.gg/4Xpwwz6pgN) <br>
-### Kullanımı<br> <br>
+# Black Botlist API
+
+> ⚠️ **THIS MODULE IS DEPRECATED / NOT IN USE ANYMORE!**  
+> It was created to connect to a blacklist.cf API to check if a bot has received a vote.
+> Use it for educational/demo purposes only. It will no longer be maintained.  
+
+## Info <br>
+[Go to the Black Botlist website](https://blackbotlist.cf/) <br>
+[How to use](https://blackbotlist.cf/docs) <br>
+[Discord server](https://discord.gg/cPe9A9vmaE) <br>
+[Support Discord server](https://discord.gg/4Xpwwz6pgN) <br>
+
+### Usage<br><br>
+
 ```js
 const blackbotlist = require("blackbotlistapi");
 
-blackbotlist.get("Botid","Kisininidsi").catch(() => {}).then(sonuc => {//sonucu değiştirebilirsiniz
-if(sonuc)  {
-//Kisininidsi oy verdiyse
-}})
-
-blackbotlist.get("Botid","Kisininidsi").catch(() => {}).then(sonuc => {
-if(!sonuc)  {
-//Kisininidsi oy vermediyse
-}})
-
-setInterval(function(){
-blackbotlist.webhook("Botid").catch(() => {}).then(sonuc => {
-if(!sonuc) return;
-//Bota bir kişi oy verdiyse
-console.log(sonuc+"'idli kişi bota oy verdi UwU")
+blackbotlist.get("Botid", "UserID").catch(() => {}).then(result => {
+  // You can change the result variable name
+  if (result) {
+    // If the user has voted
+  }
 })
-},5000)//Tekrarlıyorsa yada birşey yapmıyorsa süreyi değiştirin
+
+blackbotlist.get("Botid", "UserID").catch(() => {}).then(result => {
+  if (!result) {
+    // If the user has NOT voted
+  }
+})
+
+setInterval(function () {
+  blackbotlist.webhook("Botid").catch(() => {}).then(result => {
+    if (!result) return;
+    // If someone voted for the bot
+    console.log(result + " voted for the bot UwU");
+  })
+}, 5000); // Change the interval if it's repeating or not doing anything
 ```
-### Örnek kod
+## Example Code
 ```js
 const blackbotlist = require("blackbotlistapi");
 
-//Oy ver komutu
+// Vote command
 client.on('message', async msg => {
-if (msg.content === 'ping') {
-blackbotlist.get("Botid",msg.author.id).catch(() => {}).then(sonuc => {
-if(!sonuc)  {
-msg.channel.send("Bu komutu kullanabilmeniz icin oy vermeniz gerekmektedir")
-}
-if(sonuc) {
-msg.channel.send("teşekkürler")
-}})
-}});
+  if (msg.content === 'ping') {
+    blackbotlist.get("Botid", msg.author.id).catch(() => {}).then(result => {
+      if (!result) {
+        msg.channel.send("You need to vote to use this command.");
+      }
+      if (result) {
+        msg.channel.send("Thank you for voting!");
+      }
+    })
+  }
+});
 
-//Webhook
+// Webhook
 client.on('ready', () => {
-setInterval(function(){
-blackbotlist.webhook("Botid").catch(() => {}).then(sonuc => {
-if(!sonuc) return;
-client.channels.cache.get("Kanalid").send(`UwU <@!${sonuc}> Bota oy verdi!`)
-})
-},1000)
+  setInterval(function () {
+    blackbotlist.webhook("Botid").catch(() => {}).then(result => {
+      if (!result) return;
+      client.channels.cache.get("ChannelID").send(`UwU <@!${result}> just voted for the bot!`);
+    })
+  }, 1000);
 });
 
 ```
-#### Yüklemek için
+#### To install
 - ```npm i blackbotlistapi```
-
-#### Hatamı alıyorsun ilk olarak terminale npm i node-fetch@2.6.1 yaz
-#### Halamı hata alıyorsun o zaman hemen [discord sunucumuza gel](https://discord.gg/cPe9A9vmaE) ve ticket aç!
-
-## Dangerio Studio
+#### Getting an error? First try this in your terminal:
+- ```npm i node-fetch@2.6.1```
